@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Anditsung\NovaLegacyLogViewer\Http\Controllers\LogViewerController;
 

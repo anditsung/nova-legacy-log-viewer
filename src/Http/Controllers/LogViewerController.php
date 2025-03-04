@@ -25,12 +25,6 @@ class LogViewerController
         $lines = $logFile->contentAfterLine($request->lastLine);
         $lastLine = $request->lastLine + substr_count($lines, PHP_EOL);
 
-        quo([
-            'lastLine' => $lastLine,
-            'content' => $lines,
-            'numberOfLines' => $logFile->numberOfLines(),
-        ]);
-
         return response()->json([
             'lastLine' => $lastLine,
             'content' => $lines,
