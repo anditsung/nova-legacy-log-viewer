@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Anditsung\NovaLegacyLogViewer\Http\Controllers\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/endpoint', function (Request $request) {
-//     //
-// });
+Route::get('/', LogViewerController::class);
+
+Route::get('/log', [LogViewerController::class, 'fetch']);

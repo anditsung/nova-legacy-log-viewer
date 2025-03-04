@@ -1,6 +1,20 @@
-<router-link tag="h3" :to="{name: 'nova-legacy-log-viewer'}" class="cursor-pointer flex items-center font-normal dim text-white mb-6 text-base no-underline">
-    <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="var(--sidebar-icon)" d="M3 1h4c1.1045695 0 2 .8954305 2 2v4c0 1.1045695-.8954305 2-2 2H3c-1.1045695 0-2-.8954305-2-2V3c0-1.1045695.8954305-2 2-2zm0 2v4h4V3H3zm10-2h4c1.1045695 0 2 .8954305 2 2v4c0 1.1045695-.8954305 2-2 2h-4c-1.1045695 0-2-.8954305-2-2V3c0-1.1045695.8954305-2 2-2zm0 2v4h4V3h-4zM3 11h4c1.1045695 0 2 .8954305 2 2v4c0 1.1045695-.8954305 2-2 2H3c-1.1045695 0-2-.8954305-2-2v-4c0-1.1045695.8954305-2 2-2zm0 2v4h4v-4H3zm10-2h4c1.1045695 0 2 .8954305 2 2v4c0 1.1045695-.8954305 2-2 2h-4c-1.1045695 0-2-.8954305-2-2v-4c0-1.1045695.8954305-2 2-2zm0 2v4h4v-4h-4z"/></svg>
+<router-link
+        tag="h3"
+        :to="{
+            name: 'nova-legacy-log-viewer',
+            params: {
+                logs: {{ \Anditsung\NovaLegacyLogViewer\LogViewer::logs() }}
+            }
+        }"
+        class="cursor-pointer flex items-center font-normal dim text-white mb-6 text-base no-underline">
+    <svg class="sidebar-icon"
+         xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24">
+        <path
+                fill="var(--sidebar-icon)" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+    </svg>
     <span class="sidebar-label">
-        Nova Legacy Log Viewer
+        {{ __('Logs') }}
     </span>
 </router-link>

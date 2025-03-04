@@ -2,10 +2,12 @@
 
 namespace Anditsung\NovaLegacyLogViewer;
 
+use Illuminate\Support\Facades\File as FileFacade;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
+use Symfony\Component\Finder\SplFileInfo;
 
-class NovaLegacyLogViewer extends Tool
+class LogViewer extends Tool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -26,5 +28,19 @@ class NovaLegacyLogViewer extends Tool
     public function renderNavigation()
     {
         return view('nova-legacy-log-viewer::navigation');
+    }
+
+    public static function logs()
+    {
+        return collect(FileFacade::allFiles(storage_path('logs')))
+            ->filter(fn (SplFileInfo $log) => $log->getExtension() === 'log')
+            ->map(function (SplFileInfo $log) {
+                return [
+                    'label' => $log->getRelativePathname(),
+                    'value' => $log->getRelativePathname(),
+                ];
+            })
+            ->sortByDesc('label')
+            ->values();
     }
 }

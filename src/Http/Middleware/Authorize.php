@@ -3,7 +3,7 @@
 namespace Anditsung\NovaLegacyLogViewer\Http\Middleware;
 
 use Laravel\Nova\Nova;
-use Anditsung\NovaLegacyLogViewer\NovaLegacyLogViewer;
+use Anditsung\NovaLegacyLogViewer\LogViewer;
 
 class Authorize
 {
@@ -29,6 +29,6 @@ class Authorize
      */
     public function matchesTool($tool)
     {
-        return $tool instanceof NovaLegacyLogViewer;
+        return $tool instanceof LogViewer;
     }
 }

@@ -40,7 +40,7 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/nova-legacy-log-viewer')
+                ->prefix('nova-vendor/legacy-logs')
                 ->group(__DIR__.'/../routes/api.php');
     }
 
