@@ -15,5 +15,5 @@ use Anditsung\NovaLegacyLogViewer\Http\Controllers\LogViewerController;
 */
 
 Route::get('/', LogViewerController::class);
-
 Route::get('/log', [LogViewerController::class, 'fetch']);
+Route::post('/log', [LogViewerController::class, 'delete']);
