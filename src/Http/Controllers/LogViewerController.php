@@ -31,4 +31,9 @@ class LogViewerController
             'numberOfLines' => $logFile->numberOfLines(),
         ]);
     }
+
+    public function delete(Request $request)
+    {
+        unlink(storage_path('logs/'.$request->log));
+    }
 }
